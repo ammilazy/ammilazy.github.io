@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>剪刀石头布</title>
+
+    <!-- Recommended meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.5.2/core.css">
+
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.5.2/core.js"></script>
+</head>
+<body>
+  <script type="py" src="./main.py" >
+      count = 0
+while count < 5:
+    username = input("请输入用户名：")
+    password = input("请输入密码：")
+    if username == "gyh" and password == "123456":
+        print("欢迎登录！")
+        break
+    else:
+        print("用户名或密码输入错误，请重试！")
+        count = count + 1
+if count == 5:
+    print("该账户已锁定，请联系客服人员！")
+import random, time
+
+while True:
+    punches = ['石头', '剪刀', '布']
+    computer_choice = random.choice(punches)
+    i = int(input('请出拳：0=石头，1=剪刀，2=布 '))
+    while i<0 or i>2:
+        i = int(input('输入错误，请重新出拳：0=石头，1=剪刀，2=布 '))
+
+    user_choice = punches[i]
+    print('----战斗过程----')
+    print("计算机 = "+computer_choice)
+    print("玩家 = "+user_choice)
+    time.sleep(1)
+    if (computer_choice == '石头' and user_choice == '布')\
+            or (computer_choice == '布' and user_choice == '剪刀')\
+            or (computer_choice == '剪刀' and user_choice == '石头'):
+        print('玩家胜！恭喜你！')
+    elif computer_choice == user_choice:
+        print('双方战和了！')
+    else:
+        print('很遗憾，电脑胜！')
+</script>
+</body>
